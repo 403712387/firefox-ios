@@ -85,7 +85,7 @@ extension TimestampedSingleCollectionSynchronizer {
      * In order to implement the latter, we'd need to chain the date from getSince in place of the
      * 0 in the call to uploadOutgoingFromStorage in each synchronizer.
      */
-    func uploadRecords<T>(records: [Record<T>], by: Count, lastTimestamp: Timestamp, storageClient: Sync15CollectionClient<T>, onUpload: POSTResult -> DeferredTimestamp) -> DeferredTimestamp {
+    func uploadRecords<T>(records: [Record<T>], by: Int, lastTimestamp: Timestamp, storageClient: Sync15CollectionClient<T>, onUpload: POSTResult -> DeferredTimestamp) -> DeferredTimestamp {
         if records.isEmpty {
             log.debug("No modified records to upload.")
             return deferMaybe(lastTimestamp)
